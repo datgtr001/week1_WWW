@@ -18,10 +18,9 @@ public class AccountRepository {
         this.connection = connection;
     }
 
-    public List<Account> getById(String id) throws SQLException, ClassNotFoundException {
+    public Account getById(String id) throws SQLException, ClassNotFoundException {
         connection = ConnectDB.getInstance().getConnection();
         PreparedStatement stm = null;
-        List<Account> listAcc = new ArrayList<>();
         try {
             String sql = "SELECT * FROM account WHERE account_id = ?";
             stm = connection.prepareStatement(sql);
@@ -35,9 +34,7 @@ public class AccountRepository {
                 acc.setEmail(rs.getString("email"));
                 acc.setPhone(rs.getString("phone"));
                 acc.setStatus(Status.receiveStatus(rs.getInt("status")));
-
-                listAcc.add(acc);
-                return listAcc;
+                return acc;
             } else return null;
         } catch (SQLException e) {
             e.printStackTrace();

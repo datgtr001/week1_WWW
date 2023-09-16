@@ -6,7 +6,7 @@ public enum Status {
     delete(-1);
     private final int value;
 
-    private Status(int value){
+    Status(int value){
         this.value = value;
     }
 

@@ -41,8 +41,7 @@ public class RoleRepository {
             return null;
         }
     }
-    public List<Role> getByID(String id) throws SQLException, ClassNotFoundException {
-        List<Role> listRole = new ArrayList<>();
+    public Role getByID(String id) throws SQLException, ClassNotFoundException {
         connection = ConnectDB.getInstance().getConnection();
         PreparedStatement stm = null;
         try {
@@ -56,10 +55,8 @@ public class RoleRepository {
                 role.setRoleName(rs.getString("role_name"));
                 role.setDescription(rs.getString("description"));
                 role.setStatus(Status.receiveStatus(rs.getInt("status")));
-
-                listRole.add(role);
             }
-            return listRole;
+            return role;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -77,8 +74,7 @@ public class RoleRepository {
             stm.setInt(4, role.getStatus().getValue());
 
             int result = stm.executeUpdate();
-            if (result > 0) return true;
-            else return false;
+            return result > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -96,8 +92,7 @@ public class RoleRepository {
             stm.setString(4, role.getRoleId());
 
             int result = stm.executeUpdate();
-            if (result > 0) return true;
-            else return false;
+            return result > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -112,8 +107,7 @@ public class RoleRepository {
             stm.setString(1, id);
 
             int result = stm.executeUpdate();
-            if (result > 0) return true;
-            else return false;
+            return result > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

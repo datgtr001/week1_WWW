@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Log implements Serializable {
     private String logId;
-    private String accountId;
+    private Account account;
     private Date loginDate;
     private Date logoutDate;
     private String note;
@@ -13,9 +13,9 @@ public class Log implements Serializable {
     public Log() {
     }
 
-    public Log(String logId, String accountId, Date loginDate, Date logoutDate, String note) {
+    public Log(String logId, Account account, Date loginDate, Date logoutDate, String note) {
         this.logId = logId;
-        this.accountId = accountId;
+        this.account = account;
         this.loginDate = loginDate;
         this.logoutDate = logoutDate;
         this.note = note;
@@ -25,15 +25,15 @@ public class Log implements Serializable {
         return logId;
     }
 
-    public String getAccountId() {
-        return accountId;
+    public Account getAccount() {
+        return account;
     }
 
-    public Date getLoginDate() {
+    public java.sql.Date getLoginDate() {
         return loginDate;
     }
 
-    public Date getLogoutDate() {
+    public java.sql.Date getLogoutDate() {
         return logoutDate;
     }
 
@@ -45,8 +45,8 @@ public class Log implements Serializable {
         this.logId = logId;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public void setLoginDate(Date loginDate) {
@@ -65,7 +65,7 @@ public class Log implements Serializable {
     public String toString() {
         return "Log{" +
                 "logId='" + logId + '\'' +
-                ", accountId='" + accountId + '\'' +
+                ", account=" + account +
                 ", loginDate=" + loginDate +
                 ", logoutDate=" + logoutDate +
                 ", note='" + note + '\'' +

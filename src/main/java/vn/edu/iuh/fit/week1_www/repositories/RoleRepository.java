@@ -55,8 +55,9 @@ public class RoleRepository {
                 role.setRoleName(rs.getString("role_name"));
                 role.setDescription(rs.getString("description"));
                 role.setStatus(Status.receiveStatus(rs.getInt("status")));
+                return role;
             }
-            return role;
+            return null;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

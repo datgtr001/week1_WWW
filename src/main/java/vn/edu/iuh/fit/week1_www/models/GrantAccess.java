@@ -3,14 +3,14 @@ package vn.edu.iuh.fit.week1_www.models;
 import java.io.Serializable;
 
 public class GrantAccess implements Serializable {
-    private String accountId;
-    private String roleId;
+    private Account account;
+    private Role role;
     private boolean is_grant;
     private String note;
 
-    public GrantAccess(String accountId, String roleId, boolean is_grant, String note) {
-        this.accountId = accountId;
-        this.roleId = roleId;
+    public GrantAccess(Account account, Role role, boolean is_grant, String note) {
+        this.account = account;
+        this.role = role;
         this.is_grant = is_grant;
         this.note = note;
     }
@@ -18,12 +18,12 @@ public class GrantAccess implements Serializable {
     public GrantAccess() {
     }
 
-    public String getAccountId() {
-        return accountId;
+    public Account getAccount() {
+        return account;
     }
 
-    public String getRoleId() {
-        return roleId;
+    public Role getRole() {
+        return role;
     }
 
     public boolean isIs_grant() {
@@ -34,12 +34,12 @@ public class GrantAccess implements Serializable {
         return note;
     }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public void setIs_grant(boolean is_grant) {
@@ -53,8 +53,8 @@ public class GrantAccess implements Serializable {
     @Override
     public String toString() {
         return "GrantAccess{" +
-                "accountId='" + accountId + '\'' +
-                ", roleId='" + roleId + '\'' +
+                "account=" + account +
+                ", role=" + role +
                 ", is_grant=" + is_grant +
                 ", note='" + note + '\'' +
                 '}';
